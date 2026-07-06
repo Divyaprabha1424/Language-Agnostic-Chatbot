@@ -1,0 +1,388 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#EEF2FF;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px;
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.history-container{
+
+    width:900px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.15);
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.history-header{
+
+    background:#4F46E5;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 25px;
+
+}
+
+.history-header h2{
+
+    font-size:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.back-btn,
+.clear-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:#4F46E5;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover,
+.clear-btn:hover{
+
+    transform:scale(1.08);
+
+    background:#E0E7FF;
+
+}
+
+/* ===========================
+   SEARCH
+=========================== */
+
+.search-box{
+
+    padding:20px;
+
+    background:#F8FAFC;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.search-box input:focus{
+
+    border-color:#4F46E5;
+
+    box-shadow:0 0 6px rgba(79,70,229,.2);
+
+}
+
+/* ===========================
+   HISTORY LIST
+=========================== */
+
+#history-list{
+
+    padding:20px;
+
+    max-height:600px;
+
+    overflow-y:auto;
+
+}
+
+#history-list::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+#history-list::-webkit-scrollbar-thumb{
+
+    background:#C7D2FE;
+
+    border-radius:20px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.history-card{
+
+    background:#F9FAFB;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.history-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+}
+
+.question{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#111827;
+
+    margin-bottom:12px;
+
+}
+
+.question i{
+
+    color:#4F46E5;
+
+    margin-right:8px;
+
+}
+
+.time{
+
+    color:#6B7280;
+
+    font-size:14px;
+
+    margin-bottom:18px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.actions{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.actions button{
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.actions button:first-child{
+
+    background:#4F46E5;
+
+    color:white;
+
+}
+
+.actions button:first-child:hover{
+
+    background:#4338CA;
+
+}
+
+.actions button:last-child{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+.actions button:last-child:hover{
+
+    background:#DC2626;
+
+}
+
+/* Modal */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.modal-content{
+
+    background:white;
+
+    width:600px;
+
+    max-width:90%;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+    position:relative;
+
+    animation:popup .3s ease;
+
+}
+
+.close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:#555;
+
+}
+
+.close:hover{
+
+    color:red;
+
+}
+
+.modal h2{
+
+    color:#4F46E5;
+
+    margin-bottom:15px;
+
+}
+
+.modal p{
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    word-wrap:break-word;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
