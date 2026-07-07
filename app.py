@@ -2,13 +2,18 @@ from flask import Flask, render_template, request, jsonify
 from langdetect import detect
 import pymysql
 import google.generativeai as genai
+import os
+
 
 app = Flask(__name__)
 
 # ==========================
 # Gemini API
 # ==========================
-genai.configure(api_key="YOUR_GEMINI_API_KEY")
+# ==========================
+import os
+
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -17,15 +22,16 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 # ==========================
 # MySQL Connection
 # ==========================
+import os
+
 db = pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="chatbot_db",
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME"),
+    port=int(os.getenv("DB_PORT")),
     cursorclass=pymysql.cursors.DictCursor
 )
-
-cursor = db.cursor()
 
 # ==========================
 # Home
