@@ -5,13 +5,13 @@ import google.generativeai as genai
 import os
 
 
+
 app = Flask(__name__)
 
 # ==========================
 # Gemini API
 # ==========================
 # ==========================
-import os
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
@@ -22,7 +22,7 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 # ==========================
 # MySQL Connection
 # ==========================
-import os
+
 
 db = pymysql.connect(
     host=os.getenv("DB_HOST"),
@@ -32,6 +32,8 @@ db = pymysql.connect(
     port=int(os.getenv("DB_PORT")),
     cursorclass=pymysql.cursors.DictCursor
 )
+
+cursor = db.cursor()
 
 # ==========================
 # Home
@@ -125,5 +127,9 @@ def clear():
 # ==========================
 # Run
 # ==========================
-if __name__=="__main__":
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", 5000)),
+        debug=True
+    )
